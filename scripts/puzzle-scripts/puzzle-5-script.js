@@ -499,7 +499,7 @@ function caesarShiftAlphabet(box) {
     const password = potentialPasswords[Math.floor(Math.random() * potentialPasswords.length)];
 
     correctAnswer = findCipherText(password, backwardsShiftAmount);
-    
+
     // generate the letter buttons in step 2 now that we have the correct answer
     generateLetterButtons(correctAnswer)
 
@@ -517,16 +517,12 @@ function caesarShiftAlphabet(box) {
 function generateLetterButtons(inputString) {
     // Get unique letters from the input string
     const uniqueLetters = [...new Set(inputString)].join('').split('');
-    
     // Shuffle the letters
     const shuffledLetters = uniqueLetters.sort(() => Math.random() - 0.5);
-
     // Get the button container
     const buttonContainer = document.getElementById('letter-buttons');
-
     // Clear existing buttons (if any)
     buttonContainer.innerHTML = '';
-
     // Create buttons for each letter
     shuffledLetters.forEach(letter => {
         const button = document.createElement('button');
