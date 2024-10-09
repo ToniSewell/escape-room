@@ -2,8 +2,7 @@
 
 // Note: hopefully students don't inspect the code...
 var correctAnswer = 'COKYPMRKYC';
-
-
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 ////////////////////////////////////////////////////////////
 // Function to shuffle both lists
@@ -379,7 +378,6 @@ function displayLetters(letters) {
 }
 
 function findCipherText(word, shift) {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const cipherText = Array.from(word).map(letter => {
         const originalIndex = alphabet.indexOf(letter);
         const shiftedIndex = (originalIndex + shift) % 26; // Wrap around if index exceeds 25
@@ -490,7 +488,6 @@ function checkAnswerQ1() {
 // Preparation for the keypad functionality
 ////////////////////////////////////////////////////////////
 function caesarShiftAlphabet(box) {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const letters = Array.from(box.querySelectorAll('.alphabet-letter'));
 
     // Generate a random shift amount between 1 and 25
@@ -513,7 +510,6 @@ function caesarShiftAlphabet(box) {
 
 // Function to match a given letter sequence against the shifted alphabet
 function matchSequence(sequence, shiftAmount) {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let matchedSequence = '';
 
     // Iterate over each letter in the sequence
