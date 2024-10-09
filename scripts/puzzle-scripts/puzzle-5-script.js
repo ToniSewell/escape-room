@@ -1,3 +1,10 @@
+/// GLOBAL VARIABLES
+
+// Note: hopefully students don't inspect the code...
+var correctAnswer = 'COKYPMRKYC';
+
+
+
 ////////////////////////////////////////////////////////////
 // Function to shuffle both lists
 ////////////////////////////////////////////////////////////
@@ -314,13 +321,8 @@ function showBigImage() {
     document.querySelector('.dark-overlay').style.display = 'block';
 
     // Call the function to display the letters
-    displayLetters();
-
-    // Show the text overlay
-    //for (let i = 1; i <= 10; i++) {
-    //    document.querySelector(`.letter${i}`).style.display = 'block';
-    //}
-
+    const letters = str.split(correctAnswer);
+    displayLetters(letters);
 
 }
 
@@ -365,9 +367,7 @@ function overlayLettersOnImage(imageSrc, letters, positions) {
     };
 }
 
-function displayLetters() {
-    // List of letters to display
-    const letters = ["C", "O", "K", "Y", "P", "M", "R", "K", "Y", "C"];
+function displayLetters(letters) {
 
     // Get all elements with the class 'letter'
     const letterElements = document.querySelectorAll('.letter');
@@ -378,6 +378,8 @@ function displayLetters() {
         element.style.display = 'block'; // Make the letter visible
     });
 }
+
+
 
 ////////////////////////////////////////////////////////////
 // Function for the Step 2 'Match the letters with each location'
@@ -457,7 +459,7 @@ function checkAnswerQ1() {
     var userAnswer = document.getElementById("userAnswerStep3").value.trim().toUpperCase();
     var result = document.getElementById("resultStep3");
 
-    if (userAnswer === "COKYPMRKYC") {
+    if (userAnswer === correctAnswer) {
         result.textContent = "Nice work, Agent! It seems the combination is close to being cracked!";
         result.style.color = "green";
         keyInputQ1.disabled = true;
@@ -526,7 +528,7 @@ const box2 = document.querySelector('.alphabet-box2');
 const shiftedBox = document.querySelector('.alphabet-box2');
 
 const shiftAmount = caesarShiftAlphabet(shiftedBox);
-const sequence = 'COKYPMRKYC';
+const sequence = correctAnswer;
 
 // Match the sequence against the shifted alphabet
 const matchedSequence = matchSequence(sequence, shiftAmount);
@@ -550,7 +552,7 @@ letters1.forEach((letter1, index) => {
         letter2.classList.remove('highlighted');
     });
 });
-  
+
 letters2.forEach((letter2, index) => {
     letter2.addEventListener('mouseenter', () => {
         const letter1 = box1.querySelectorAll('.alphabet-letter')[index];
