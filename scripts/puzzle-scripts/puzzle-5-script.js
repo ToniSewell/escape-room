@@ -499,6 +499,9 @@ function caesarShiftAlphabet(box) {
     const password = potentialPasswords[Math.floor(Math.random() * potentialPasswords.length)];
 
     correctAnswer = findCipherText(password, backwardsShiftAmount);
+    
+    // generate the letter buttons in step 2 now that we have the correct answer
+    generateLetterButtons(correctAnswer)
 
     // Perform the Caesar shift on each letter
     letters.forEach((letter, index) => {
@@ -509,6 +512,29 @@ function caesarShiftAlphabet(box) {
     });
 
     return shiftAmount;
+}
+
+function generateLetterButtons(inputString) {
+    // Get unique letters from the input string
+    const uniqueLetters = [...new Set(inputString)].join('').split('');
+    
+    // Shuffle the letters
+    const shuffledLetters = uniqueLetters.sort(() => Math.random() - 0.5);
+
+    // Get the button container
+    const buttonContainer = document.getElementById('letter-buttons');
+
+    // Clear existing buttons (if any)
+    buttonContainer.innerHTML = '';
+
+    // Create buttons for each letter
+    shuffledLetters.forEach(letter => {
+        const button = document.createElement('button');
+        button.className = 'letter-button';
+        button.value = letter;
+        button.textContent = letter; // Display the letter on the button
+        buttonContainer.appendChild(button);
+    });
 }
 
 // Function to match a given letter sequence against the shifted alphabet
