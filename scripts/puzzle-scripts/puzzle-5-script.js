@@ -495,7 +495,10 @@ function caesarShiftAlphabet(box) {
     // switch shiftAmount to opposite of 16
     const backwardsShiftAmount = 26 - shiftAmount;
 
-    correctAnswer = findCipherText("SEAOFCHAOS", backwardsShiftAmount);
+    const potentialPasswords = ["SEAOFCHAOS", "IRONSWORDZ", "AXEOFTHOR", "BLOODEAGLE", "SAILORSONG", "VIKINGFURY", "VIKINGLONG"]
+    const password = potentialPasswords[Math.floor(Math.random() * potentialPasswords.length)];
+
+    correctAnswer = findCipherText(password, backwardsShiftAmount);
 
     // Perform the Caesar shift on each letter
     letters.forEach((letter, index) => {
