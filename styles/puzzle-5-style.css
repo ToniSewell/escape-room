@@ -332,9 +332,62 @@
 }
 
 /* Positioning the letters */
-.letter {
-    position: absolute;
-    font-size: 24px;
-    color: black;
-    z-index: 1000;
+.letter1 {
+    top: 10%; /* Adjust to your needs */
+    left: 20%;
+    display: "none";
+}
+
+.letter2 {
+    top: 30%;
+    left: 40%;
+    display: "none";
+}
+
+.letter3 {
+    top: 50%;
+    left: 60%;
+    display: "none";
+}
+
+.letter4 {
+    top: 50%;
+    left: 60%;
+    display: "none";
+}
+
+.letter5 {
+    top: 50%;
+    left: 60%;
+    display: "none";
+}
+
+.letter6 {
+    top: 50%;
+    left: 60%;
+    display: "none";
+}
+
+.letter7 {
+    top: 50%;
+    left: 60%;
+    display: "none";
+}
+
+.letter8 {
+    top: 50%;
+    left: 60%;
+    display: "none";
+}
+
+.letter9 {
+    top: 50%;
+    left: 60%;
+    display: "none";
+}
+
+.letter10 {
+    top: 50%;
+    left: 60%;
+    display: "none";
 }
