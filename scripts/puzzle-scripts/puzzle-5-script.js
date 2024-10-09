@@ -361,6 +361,20 @@ function overlayLettersOnImage(imageSrc, letters, positions) {
     };
 }
 
+function displayLetters() {
+    // List of letters to display
+    const letters = ["C", "O", "K", "Y", "P", "M", "R", "K", "Y", "C"];
+
+    // Get all elements with the class 'letter'
+    const letterElements = document.querySelectorAll('.letter');
+
+    // Loop through the elements and set the text and display them
+    letterElements.forEach((element, index) => {
+        element.textContent = letters[index]; // Set the letter
+        element.style.display = 'block'; // Make the letter visible
+    });
+}
+
 ////////////////////////////////////////////////////////////
 // Function for the Step 2 'Match the letters with each location'
 ////////////////////////////////////////////////////////////
