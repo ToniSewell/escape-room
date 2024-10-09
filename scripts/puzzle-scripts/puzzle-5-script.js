@@ -321,7 +321,7 @@ function showBigImage() {
     document.querySelector('.dark-overlay').style.display = 'block';
 
     // Call the function to display the letters
-    const letters = str.split(correctAnswer);
+    const letters = correctAnswer.split('');
     displayLetters(letters);
 
 }
@@ -368,7 +368,6 @@ function overlayLettersOnImage(imageSrc, letters, positions) {
 }
 
 function displayLetters(letters) {
-
     // Get all elements with the class 'letter'
     const letterElements = document.querySelectorAll('.letter');
 
