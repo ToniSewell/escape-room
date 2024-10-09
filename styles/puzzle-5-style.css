@@ -337,4 +337,5 @@
     font-size: 24px;
     color: black;
     z-index: 1000;
+    display: none;
 }
