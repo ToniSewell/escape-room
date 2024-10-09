@@ -382,7 +382,7 @@ function findCipherText(word, shift) {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const cipherText = Array.from(word).map(letter => {
         const originalIndex = alphabet.indexOf(letter);
-        const shiftedIndex = (originalIndex + shift) % 26; // Wrap around if index exceeds 25
+        const shiftedIndex = (originalIndex - shift) % 26; // Wrap around if index exceeds 25
         return alphabet.charAt(shiftedIndex);
     });
     return cipherText.join('');
@@ -496,7 +496,7 @@ function caesarShiftAlphabet(box) {
     // Generate a random shift amount between 1 and 25
     const shiftAmount = Math.floor(Math.random() * 25) + 1;
     //const shiftAmount = 16;
-    correctAnswer = findCipherText("SEAOFCHAOS", -shiftAmount);
+    correctAnswer = findCipherText("SEAOFCHAOS", shiftAmount);
 
     // Perform the Caesar shift on each letter
     letters.forEach((letter, index) => {
