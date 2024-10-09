@@ -378,7 +378,15 @@ function displayLetters(letters) {
     });
 }
 
-
+function findCipherText(word, shift) {
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const cipherText = Array.from(word).map(letter => {
+        const originalIndex = alphabet.indexOf(letter);
+        const shiftedIndex = (originalIndex + shift) % 26; // Wrap around if index exceeds 25
+        return alphabet.charAt(shiftedIndex);
+    });
+    return cipherText.join('');
+}
 
 ////////////////////////////////////////////////////////////
 // Function for the Step 2 'Match the letters with each location'
@@ -486,8 +494,9 @@ function caesarShiftAlphabet(box) {
     const letters = Array.from(box.querySelectorAll('.alphabet-letter'));
 
     // Generate a random shift amount between 1 and 25
-    // const shiftAmount = Math.floor(Math.random() * 25) + 1;
-    const shiftAmount = 16;
+    const shiftAmount = Math.floor(Math.random() * 25) + 1;
+    //const shiftAmount = 16;
+    correctAnswer = findCipherText("SEAOFCHAOS", -shiftAmount);
 
     // Perform the Caesar shift on each letter
     letters.forEach((letter, index) => {
