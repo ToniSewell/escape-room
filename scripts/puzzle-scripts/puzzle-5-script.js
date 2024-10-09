@@ -496,7 +496,10 @@ function caesarShiftAlphabet(box) {
     // Generate a random shift amount between 1 and 25
     //const shiftAmount = Math.floor(Math.random() * 25) + 1;
     const shiftAmount = 16;
-    correctAnswer = findCipherText("SEAOFCHAOS", shiftAmount);
+    // switch shiftAmount to opposite of 16
+    const backwardsShiftAmount = 26 - shiftAmount;
+
+    correctAnswer = findCipherText("SEAOFCHAOS", backwardsShiftAmount);
 
     // Perform the Caesar shift on each letter
     letters.forEach((letter, index) => {
