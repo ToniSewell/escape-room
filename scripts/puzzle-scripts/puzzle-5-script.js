@@ -313,10 +313,14 @@ function showBigImage() {
     document.querySelector('.keypad-image-big').style.display = 'block';
     document.querySelector('.dark-overlay').style.display = 'block';
 
+    // Call the function to display the letters
+    displayLetters();
+
     // Show the text overlay
-    for (let i = 1; i <= 10; i++) {
-        document.querySelector(`.letter${i}`).style.display = 'block';
-    }
+    //for (let i = 1; i <= 10; i++) {
+    //    document.querySelector(`.letter${i}`).style.display = 'block';
+    //}
+
 
 }
 
