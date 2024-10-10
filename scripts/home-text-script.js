@@ -1,7 +1,7 @@
 const div = document.querySelector(".home-text");
 
 // set the contents of the text
-const text1 = "Agent, urgent news has reached us. The data V.I.K.I.N.G.S of Fjordhelm are plotting a global catastrophe using classified information. We need you to infiltrate their base and stop them before it's too late.";
+const text1 = "Agent, urgent news has reached us. The Scottish data V.I.K.I.N.G.S are plotting a global catastrophe using classified information. We need you to infiltrate their base in Norway and stop them before it's too late.";
 const text2 = "Your mission is clear: find their hidden computer, retrieve the data on their plans, and destroy it before the plan is set in motion.";
 const text3 = "This won't be easy. You'll navigate treacherous mountains, stormy seas, and outsmart the cunning vikings guarding their lair.";
 const text4 = "Prepare yourself for challenges that will test your observation, analysis, and problem-solving skills. As an Agent of Data, you're our last hope.";
