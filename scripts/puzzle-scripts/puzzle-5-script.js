@@ -6,6 +6,35 @@ const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 ////////////////////////////////////////////////////////////
 
+function caesarShiftAlphabet(box) {
+    const letters = Array.from(box.querySelectorAll('.alphabet-letter'));
+
+    // Generate a random shift amount between 1 and 25
+    const shiftAmount = Math.floor(Math.random() * 25) + 1;
+    // switch shiftAmount to opposite of 16
+    const backwardsShiftAmount = 26 - shiftAmount;
+
+    const potentialPasswords = ["SEAOFCHAOS", "IRONSWORDZ", "AXESOFTHOR", "BLOODEAGLE", "SAILORSONG", "VIKINGFURY", "VIKINGLONG","VALHALLAAA", "VIKINGSRUL", "WEHAILODIN", "LOKIISAGOD", "LOKIISCOOL"]
+    const password = potentialPasswords[Math.floor(Math.random() * potentialPasswords.length)];
+
+    correctAnswer = findCipherText(password, backwardsShiftAmount);
+
+    // generate the letter buttons in step 2 now that we have the correct answer
+    generateLetterButtons(correctAnswer)
+
+    // Perform the Caesar shift on each letter
+    letters.forEach((letter, index) => {
+        const originalIndex = alphabet.indexOf(letter.textContent);
+        const shiftedIndex = (originalIndex + shiftAmount) % 26; // Wrap around if index exceeds 25
+        const shiftedLetter = alphabet.charAt(shiftedIndex);
+        letter.textContent = shiftedLetter;
+    });
+
+    return shiftAmount;
+}
+
+////////////////////////////////////////////////////////////
+
 const box1 = document.querySelector('.alphabet-box');
 const box2 = document.querySelector('.alphabet-box2');
 const shiftedBox = document.querySelector('.alphabet-box2');
@@ -400,8 +429,9 @@ function findCipherText(word, shift) {
 let currentLetter = '';
 let placedCorrectlyNo = 0;
 
-// create the letter buttons for the correct letters
 
+// create the letter buttons for the correct letters
+// got to ensure there are elements called letter-button before this.
 const letterButtons = document.querySelectorAll('.letter-button');
 
 letterButtons.forEach(item => {
@@ -495,35 +525,7 @@ function checkAnswerQ1() {
 ////////////////////////////////////////////////////////////
 
 
-////////////////////////////////////////////////////////////
-// Preparation for the keypad functionality
-////////////////////////////////////////////////////////////
-function caesarShiftAlphabet(box) {
-    const letters = Array.from(box.querySelectorAll('.alphabet-letter'));
 
-    // Generate a random shift amount between 1 and 25
-    const shiftAmount = Math.floor(Math.random() * 25) + 1;
-    // switch shiftAmount to opposite of 16
-    const backwardsShiftAmount = 26 - shiftAmount;
-
-    const potentialPasswords = ["SEAOFCHAOS", "IRONSWORDZ", "AXESOFTHOR", "BLOODEAGLE", "SAILORSONG", "VIKINGFURY", "VIKINGLONG","VALHALLAAA", "VIKINGSRUL", "WEHAILODIN", "LOKIISAGOD", "LOKIISCOOL"]
-    const password = potentialPasswords[Math.floor(Math.random() * potentialPasswords.length)];
-
-    correctAnswer = findCipherText(password, backwardsShiftAmount);
-
-    // generate the letter buttons in step 2 now that we have the correct answer
-    generateLetterButtons(correctAnswer)
-
-    // Perform the Caesar shift on each letter
-    letters.forEach((letter, index) => {
-        const originalIndex = alphabet.indexOf(letter.textContent);
-        const shiftedIndex = (originalIndex + shiftAmount) % 26; // Wrap around if index exceeds 25
-        const shiftedLetter = alphabet.charAt(shiftedIndex);
-        letter.textContent = shiftedLetter;
-    });
-
-    return shiftAmount;
-}
 
 function generateLetterButtons(inputString) {
     // Get unique letters from the input string
