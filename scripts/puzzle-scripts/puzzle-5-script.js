@@ -1,17 +1,3 @@
-/// GLOBAL VARIABLES
-
-// Note: hopefully students don't inspect the code...
-var correctAnswer = 'COKYPMRKYC';
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-////////////////////////////////////////////////////////////
-
-const box1 = document.querySelector('.alphabet-box');
-const box2 = document.querySelector('.alphabet-box2');
-const shiftedBox = document.querySelector('.alphabet-box2');
-
-const shiftAmount = caesarShiftAlphabet(shiftedBox);
-
 ////////////////////////////////////////////////////////////
 // Function to shuffle both lists
 ////////////////////////////////////////////////////////////
@@ -326,81 +312,22 @@ function showBigImage() {
     document.querySelector('.keypad-image-small').style.display = 'none';
     document.querySelector('.keypad-image-big').style.display = 'block';
     document.querySelector('.dark-overlay').style.display = 'block';
-
-    // Call the function to display the letters
-    const letters = correctAnswer.split('');
-    displayLetters(letters);
-
 }
 
 function hideBigImage() {
     document.querySelector('.keypad-image-big').style.display = 'none';
     document.querySelector('.keypad-image-small').style.display = 'block';
     document.querySelector('.dark-overlay').style.display = 'none';
-
-    // clear the text overlay
-    for (let i = 1; i <= 10; i++) {
-        document.querySelector(`.letter${i}`).style.display = 'none';
-    }
-
 }
 ////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////
-// Function to overlay letters onto map image
-////////////////////////////////////////////////////////////
 
-/// CURRENTLY NOT in use
-
-// Function to overlay letters on an image
-function overlayLettersOnImage(imageSrc, letters, positions) {
-    const canvas = document.getElementById("imageCanvas");
-    const ctx = canvas.getContext("2d");
-    const image = new Image();
-    image.src = imageSrc;
-
-    // When the image loads, draw it on the canvas and overlay the letters
-    image.onload = function() {
-        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-        
-        ctx.font = "40px Arial"; // Set the font for the letters
-        ctx.fillStyle = "black";   // Set the text color
-
-        // Loop through letters and positions and place them on the canvas
-        for (let i = 0; i < letters.length; i++) {
-            let [x, y] = positions[i]; // Get the x, y position for each letter
-            ctx.fillText(letters[i], x, y);
-        }
-    };
-}
-
-function displayLetters(letters) {
-    // Get all elements with the class 'letter'
-    const letterElements = document.querySelectorAll('.letter');
-
-    // Loop through the elements and set the text and display them
-    letterElements.forEach((element, index) => {
-        element.textContent = letters[index]; // Set the letter
-        element.style.display = 'block'; // Make the letter visible
-    });
-}
-
-function findCipherText(word, shift) {
-    const cipherText = Array.from(word).map(letter => {
-        const originalIndex = alphabet.indexOf(letter);
-        const shiftedIndex = (originalIndex + shift) % 26; // Wrap around if index exceeds 25
-        return alphabet.charAt(shiftedIndex);
-    });
-    return cipherText.join('');
-}
 
 ////////////////////////////////////////////////////////////
 // Function for the Step 2 'Match the letters with each location'
 ////////////////////////////////////////////////////////////
 let currentLetter = '';
 let placedCorrectlyNo = 0;
-
-// create the letter buttons for the correct letters
 
 const letterButtons = document.querySelectorAll('.letter-button');
 
@@ -414,7 +341,6 @@ letterButtons.forEach(item => {
         letterButtons.forEach(item => {
             item.classList.remove("selected");
         });
-
         // Add selected class to the clicked item
         item.classList.add("selected");
     });
@@ -475,7 +401,7 @@ function checkAnswerQ1() {
     var userAnswer = document.getElementById("userAnswerStep3").value.trim().toUpperCase();
     var result = document.getElementById("resultStep3");
 
-    if (userAnswer === correctAnswer) {
+    if (userAnswer === "SFHFKDIXFO") {
         result.textContent = "Nice work, Agent! It seems the combination is close to being cracked!";
         result.style.color = "green";
         keyInputQ1.disabled = true;
@@ -499,20 +425,11 @@ function checkAnswerQ1() {
 // Preparation for the keypad functionality
 ////////////////////////////////////////////////////////////
 function caesarShiftAlphabet(box) {
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const letters = Array.from(box.querySelectorAll('.alphabet-letter'));
 
     // Generate a random shift amount between 1 and 25
     const shiftAmount = Math.floor(Math.random() * 25) + 1;
-    // switch shiftAmount to opposite of 16
-    const backwardsShiftAmount = 26 - shiftAmount;
-
-    const potentialPasswords = ["SEAOFCHAOS", "IRONSWORDZ", "AXESOFTHOR", "BLOODEAGLE", "SAILORSONG", "VIKINGFURY", "VIKINGLONG","VALHALLAAA", "VIKINGSRUL", "WEHAILODIN", "LOKIISAGOD", "LOKIISCOOL"]
-    const password = potentialPasswords[Math.floor(Math.random() * potentialPasswords.length)];
-
-    correctAnswer = findCipherText(password, backwardsShiftAmount);
-
-    // generate the letter buttons in step 2 now that we have the correct answer
-    generateLetterButtons(correctAnswer)
 
     // Perform the Caesar shift on each letter
     letters.forEach((letter, index) => {
@@ -525,27 +442,9 @@ function caesarShiftAlphabet(box) {
     return shiftAmount;
 }
 
-function generateLetterButtons(inputString) {
-    // Get unique letters from the input string
-    const uniqueLetters = [...new Set(inputString)].join('').split('');
-    // Shuffle the letters
-    const shuffledLetters = uniqueLetters.sort(() => Math.random() - 0.5);
-    // Get the button container
-    const buttonContainer = document.getElementById('letter-buttons');
-    // Clear existing buttons (if any)
-    buttonContainer.innerHTML = '';
-    // Create buttons for each letter
-    shuffledLetters.forEach(letter => {
-        const button = document.createElement('button');
-        button.className = 'letter-button';
-        button.value = letter;
-        button.textContent = letter; // Display the letter on the button
-        buttonContainer.appendChild(button);
-    });
-}
-
 // Function to match a given letter sequence against the shifted alphabet
 function matchSequence(sequence, shiftAmount) {
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let matchedSequence = '';
 
     // Iterate over each letter in the sequence
@@ -565,12 +464,12 @@ function matchSequence(sequence, shiftAmount) {
 ////////////////////////////////////////////////////////////
 // Step 4 Functionality
 ////////////////////////////////////////////////////////////
-//const box1 = document.querySelector('.alphabet-box');
-//const box2 = document.querySelector('.alphabet-box2');
-//const shiftedBox = document.querySelector('.alphabet-box2');
+const box1 = document.querySelector('.alphabet-box');
+const box2 = document.querySelector('.alphabet-box2');
+const shiftedBox = document.querySelector('.alphabet-box2');
 
-// const shiftAmount = caesarShiftAlphabet(shiftedBox);
-const sequence = correctAnswer;
+const shiftAmount = caesarShiftAlphabet(shiftedBox);
+const sequence = 'SFHFKDIXFO';
 
 // Match the sequence against the shifted alphabet
 const matchedSequence = matchSequence(sequence, shiftAmount);
@@ -594,7 +493,7 @@ letters1.forEach((letter1, index) => {
         letter2.classList.remove('highlighted');
     });
 });
-
+  
 letters2.forEach((letter2, index) => {
     letter2.addEventListener('mouseenter', () => {
         const letter1 = box1.querySelectorAll('.alphabet-letter')[index];

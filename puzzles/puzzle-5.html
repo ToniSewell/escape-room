@@ -39,21 +39,21 @@
                     </div>
                     <div class="keypad-buttons">
                         <div class="keypad-row1">
-                            <button id="letterButton" onclick="addToDisplay(this)">A</button>
-                            <button id="letterButton" onclick="addToDisplay(this)">C</button>
-                            <button id="letterButton" onclick="addToDisplay(this)">K</button>
+                            <button id="letterButton" onclick="addToDisplay(this)">F</button>
+                            <button id="letterButton" onclick="addToDisplay(this)">O</button>
+                            <button id="letterButton" onclick="addToDisplay(this)">X</button>
                         </div>
                         
                         <div class="keypad-row2">
-                            <button id="letterButton" onclick="addToDisplay(this)">M</button>
-                            <button id="letterButton" onclick="addToDisplay(this)">N</button>
-                            <button id="letterButton" onclick="addToDisplay(this)">O</button>
+                            <button id="letterButton" onclick="addToDisplay(this)">D</button>
+                            <button id="letterButton" onclick="addToDisplay(this)">K</button>
+                            <button id="letterButton" onclick="addToDisplay(this)">H</button>
                         </div>
                         
                         <div class="keypad-row3">
-                            <button id="letterButton" onclick="addToDisplay(this)">P</button>
-                            <button id="letterButton" onclick="addToDisplay(this)">R</button>
-                            <button id="letterButton" onclick="addToDisplay(this)">Y</button>
+                            <button id="letterButton" onclick="addToDisplay(this)">S</button>
+                            <button id="letterButton" onclick="addToDisplay(this)">I</button>
+                            <button id="letterButton" onclick="addToDisplay(this)">J</button>
                         </div>
     
                         <div class="keypad-row4">
@@ -63,22 +63,8 @@
                         </div>
                     </div>
                 </div>
-
-                <img src="../assets/backgrounds/puzzle5-assets/map_blank.png" class="keypad-image-small" alt="Image" onclick="showBigImage()" z-index="9">
-                <img src="../assets/backgrounds/puzzle5-assets/map_blank.png" class="keypad-image-big" alt="Image" onclick="hideBigImage()" position="relative">
-                
-                <!-- Overlay letters -->
-                <div class="letter letter1" style="display: none; position: absolute; top: 100px; left: -90px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                <div class="letter letter2" style="display: none; position: absolute; top: 10px; left: 120px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                <div class="letter letter3" style="display: none; position: absolute; top: 200px; left: -90px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                <div class="letter letter4" style="display: none; position: absolute; top: 100px; left: 320px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                <div class="letter letter5" style="display: none; position: absolute; top: 260px; left: 20px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                <div class="letter letter6" style="display: none; position: absolute; top: 320px; left: 120px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                <div class="letter letter7" style="display: none; position: absolute; top: 40px; left: 20px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                <div class="letter letter8" style="display: none; position: absolute; top: 220px; left: 320px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                <div class="letter letter9" style="display: none; position: absolute; top: 275px; left: 220px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                <div class="letter letter10" style="display: none; position: absolute; top: 30px; left: 220px; font-size: 24px; color: black; z-index: 1000;" ></div>
-                
+                <img src="../assets/backgrounds/puzzle5-assets/map.png" class="keypad-image-small" alt="Image" onclick="showBigImage()">
+                <img src="../assets/backgrounds/puzzle5-assets/map.png" class="keypad-image-big" alt="Image" onclick="hideBigImage()">
                 <div class="dark-overlay" onclick="hideBigImage()"></div>
                 <!-- <p id="resultKeypad" style="display: none;"></p> -->
             </div>
@@ -210,69 +196,66 @@
         <div class="puzzle_container3" id="p-container3">
             <p>Step 2: Match each location to its letter from the map (look around for the map its hidden somewhere on this page)</p>
             
-            <!-- has to be updated with the relevant letters --> 
-            <div class="letter-buttons" id="letter-buttons">
-                <!--
-                <button class="letter-button" value="C">C</button>
+            <div class="letter-buttons">
+                <button class="letter-button" value="F">F</button>
                 <button class="letter-button" value="O">O</button>
-                <button class="letter-button" value="Y">Y</button>
-                <button class="letter-button" value="P">P</button>
+                <button class="letter-button" value="X">X</button>
+                <button class="letter-button" value="D">D</button>
                 <button class="letter-button" value="K">K</button>
-                <button class="letter-button" value="M">M</button>
-                <button class="letter-button" value="R">R</button>
-            -->
-            
-            </div> 
+                <button class="letter-button" value="H">H</button>
+                <button class="letter-button" value="S">S</button>
+                <button class="letter-button" value="I">I</button>
+            </div>
 
             <div class="details-container">
                 <div class="details" onclick="placeLetter(this)">
                     <img src="/escape-room/assets/backgrounds/puzzle5-assets/O.png">
-                    <div class="letter-circle" data-value="C"></div>
-                </div>
-
-                <div class="details" onclick="placeLetter(this)">
-                    <img src="/escape-room/assets/backgrounds/puzzle5-assets/F.png">
                     <div class="letter-circle" data-value="O"></div>
                 </div>
 
                 <div class="details" onclick="placeLetter(this)">
+                    <img src="/escape-room/assets/backgrounds/puzzle5-assets/F.png">
+                    <div class="letter-circle" data-value="F"></div>
+                </div>
+
+                <div class="details" onclick="placeLetter(this)">
                     <img src="/escape-room/assets/backgrounds/puzzle5-assets/F2.png">
-                    <div class="letter-circle" data-value="Y"></div>
+                    <div class="letter-circle" data-value="F"></div>
                 </div>
 
                 <div class="details" onclick="placeLetter(this)">
                     <img src="/escape-room/assets/backgrounds/puzzle5-assets/F3.png">
-                    <div class="letter-circle" data-value="Y"></div>
+                    <div class="letter-circle" data-value="F"></div>
                 </div>
 
                 <div class="details" onclick="placeLetter(this)">
                     <img src="/escape-room/assets/backgrounds/puzzle5-assets/D.png">
-                    <div class="letter-circle" data-value="M"></div>
+                    <div class="letter-circle" data-value="D"></div>
                 </div>
 
                 <div class="details" onclick="placeLetter(this)">
                     <img src="/escape-room/assets/backgrounds/puzzle5-assets/H.png">
-                    <div class="letter-circle" data-value="K"></div>
+                    <div class="letter-circle" data-value="H"></div>
                 </div>
 
                 <div class="details" onclick="placeLetter(this)">
                     <img src="/escape-room/assets/backgrounds/puzzle5-assets/I.png">
-                    <div class="letter-circle" data-value="R"></div>
+                    <div class="letter-circle" data-value="I"></div>
                 </div>
 
                 <div class="details" onclick="placeLetter(this)">
                     <img src="/escape-room/assets/backgrounds/puzzle5-assets/K.png">
-                    <div class="letter-circle" data-value="P"></div>
+                    <div class="letter-circle" data-value="K"></div>
                 </div>
 
                 <div class="details" onclick="placeLetter(this)">
                     <img src="/escape-room/assets/backgrounds/puzzle5-assets/S.png">
-                    <div class="letter-circle" data-value="C"></div>
+                    <div class="letter-circle" data-value="S"></div>
                 </div>
 
                 <div class="details" onclick="placeLetter(this)">
                     <img src="/escape-room/assets/backgrounds/puzzle5-assets/X.png">
-                    <div class="letter-circle" data-value="K"></div>
+                    <div class="letter-circle" data-value="X"></div>
                 </div>
             </div>
             <p id="resultStep2" style="display: none;"></p>
