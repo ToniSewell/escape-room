@@ -392,6 +392,8 @@ function findCipherText(word, shift) {
 let currentLetter = '';
 let placedCorrectlyNo = 0;
 
+// create the letter buttons for the correct letters
+
 const letterButtons = document.querySelectorAll('.letter-button');
 
 letterButtons.forEach(item => {
