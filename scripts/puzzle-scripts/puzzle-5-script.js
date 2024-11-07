@@ -4,6 +4,8 @@
 var correctAnswer = 'COKYPMRKYC';
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+const shiftAmount = caesarShiftAlphabet(shiftedBox);
+
 ////////////////////////////////////////////////////////////
 // Function to shuffle both lists
 ////////////////////////////////////////////////////////////
@@ -560,7 +562,7 @@ const box1 = document.querySelector('.alphabet-box');
 const box2 = document.querySelector('.alphabet-box2');
 const shiftedBox = document.querySelector('.alphabet-box2');
 
-const shiftAmount = caesarShiftAlphabet(shiftedBox);
+// const shiftAmount = caesarShiftAlphabet(shiftedBox);
 const sequence = correctAnswer;
 
 // Match the sequence against the shifted alphabet
