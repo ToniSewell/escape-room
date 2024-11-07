@@ -4,6 +4,12 @@
 var correctAnswer = 'COKYPMRKYC';
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+////////////////////////////////////////////////////////////
+
+const box1 = document.querySelector('.alphabet-box');
+const box2 = document.querySelector('.alphabet-box2');
+const shiftedBox = document.querySelector('.alphabet-box2');
+
 const shiftAmount = caesarShiftAlphabet(shiftedBox);
 
 ////////////////////////////////////////////////////////////
@@ -408,6 +414,7 @@ letterButtons.forEach(item => {
         letterButtons.forEach(item => {
             item.classList.remove("selected");
         });
+
         // Add selected class to the clicked item
         item.classList.add("selected");
     });
@@ -558,9 +565,9 @@ function matchSequence(sequence, shiftAmount) {
 ////////////////////////////////////////////////////////////
 // Step 4 Functionality
 ////////////////////////////////////////////////////////////
-const box1 = document.querySelector('.alphabet-box');
-const box2 = document.querySelector('.alphabet-box2');
-const shiftedBox = document.querySelector('.alphabet-box2');
+//const box1 = document.querySelector('.alphabet-box');
+//const box2 = document.querySelector('.alphabet-box2');
+//const shiftedBox = document.querySelector('.alphabet-box2');
 
 // const shiftAmount = caesarShiftAlphabet(shiftedBox);
 const sequence = correctAnswer;
