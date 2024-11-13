@@ -467,7 +467,7 @@ function placeLetter(details) {
 
             placedCorrectlyNo += 1;
 
-            if (placedCorrectlyNo === 10) {
+            if (placedCorrectlyNo == correctAnswer.length) {
                 result.textContent = "Nice work, Agent! It seems the combination is close to being cracked!";
                 result.style.color = "green";
                 result.style.display = "block";
