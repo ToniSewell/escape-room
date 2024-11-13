@@ -461,13 +461,13 @@ function placeLetter(details) {
         var result = document.getElementById("resultStep2");
 
         // Check if the placed letter is correct or not
-        if (circle.innerText === correctLetter) {
+        if (circle.innerText == correctLetter) {
             circle.classList.add('correct');
             circle.style.background = "#C8E4B2";
 
             placedCorrectlyNo += 1;
 
-            if (placedCorrectlyNo == correctAnswer.length) {
+            if (placedCorrectlyNo == 10) {
                 result.textContent = "Nice work, Agent! It seems the combination is close to being cracked!";
                 result.style.color = "green";
                 result.style.display = "block";
