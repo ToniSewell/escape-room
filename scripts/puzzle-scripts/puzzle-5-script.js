@@ -461,6 +461,7 @@ function placeLetter(details) {
         var result = document.getElementById("resultStep2");
 
         // Check if the placed letter is correct or not
+        // TODO: FIX
         if (circle.innerText == correctLetter) {
             circle.classList.add('correct');
             circle.style.background = "#C8E4B2";
